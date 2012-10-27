@@ -20,6 +20,8 @@
 		4D71E4B2163B2D2A006401C4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D71E493163B2D29006401C4 /* Foundation.framework */; };
 		4D71E4BA163B2D2A006401C4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D71E4B8163B2D2A006401C4 /* InfoPlist.strings */; };
 		4D71E4BD163B2D2A006401C4 /* RVLDataDownloaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D71E4BC163B2D2A006401C4 /* RVLDataDownloaderTests.m */; };
+		4D71E4DD163B3074006401C4 /* RVLDataDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D71E4DC163B3074006401C4 /* RVLDataDownloader.m */; };
+		4D71E4DE163B3074006401C4 /* RVLDataDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D71E4DC163B3074006401C4 /* RVLDataDownloader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,21 +39,23 @@
 		4D71E491163B2D29006401C4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4D71E493163B2D29006401C4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4D71E495163B2D29006401C4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		4D71E499163B2D29006401C4 /* RVLDataDownloader-Info.plist */ = {isa = PBXFileReference; path = "RVLDataDownloader-Info.plist"; sourceTree = "<group>"; };
+		4D71E499163B2D29006401C4 /* RVLDataDownloader-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RVLDataDownloader-Info.plist"; sourceTree = "<group>"; };
 		4D71E49B163B2D29006401C4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4D71E49D163B2D29006401C4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4D71E49F163B2D29006401C4 /* RVLDataDownloader-Prefix.pch */ = {isa = PBXFileReference; path = "RVLDataDownloader-Prefix.pch"; sourceTree = "<group>"; };
-		4D71E4A0163B2D29006401C4 /* RVLAppDelegate.h */ = {isa = PBXFileReference; path = RVLAppDelegate.h; sourceTree = "<group>"; };
+		4D71E49F163B2D29006401C4 /* RVLDataDownloader-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RVLDataDownloader-Prefix.pch"; sourceTree = "<group>"; };
+		4D71E4A0163B2D29006401C4 /* RVLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RVLAppDelegate.h; sourceTree = "<group>"; };
 		4D71E4A1163B2D29006401C4 /* RVLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RVLAppDelegate.m; sourceTree = "<group>"; };
-		4D71E4A3163B2D29006401C4 /* RVLViewController.h */ = {isa = PBXFileReference; path = RVLViewController.h; sourceTree = "<group>"; };
+		4D71E4A3163B2D29006401C4 /* RVLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RVLViewController.h; sourceTree = "<group>"; };
 		4D71E4A4163B2D29006401C4 /* RVLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RVLViewController.m; sourceTree = "<group>"; };
 		4D71E4A7163B2D29006401C4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RVLViewController.xib; sourceTree = "<group>"; };
 		4D71E4AE163B2D2A006401C4 /* RVLDataDownloaderTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RVLDataDownloaderTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D71E4AF163B2D2A006401C4 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		4D71E4B7163B2D2A006401C4 /* RVLDataDownloaderTests-Info.plist */ = {isa = PBXFileReference; path = "RVLDataDownloaderTests-Info.plist"; sourceTree = "<group>"; };
+		4D71E4B7163B2D2A006401C4 /* RVLDataDownloaderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RVLDataDownloaderTests-Info.plist"; sourceTree = "<group>"; };
 		4D71E4B9163B2D2A006401C4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4D71E4BB163B2D2A006401C4 /* RVLDataDownloaderTests.h */ = {isa = PBXFileReference; path = RVLDataDownloaderTests.h; sourceTree = "<group>"; };
+		4D71E4BB163B2D2A006401C4 /* RVLDataDownloaderTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RVLDataDownloaderTests.h; sourceTree = "<group>"; };
 		4D71E4BC163B2D2A006401C4 /* RVLDataDownloaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RVLDataDownloaderTests.m; sourceTree = "<group>"; };
+		4D71E4DB163B3074006401C4 /* RVLDataDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RVLDataDownloader.h; sourceTree = "<group>"; };
+		4D71E4DC163B3074006401C4 /* RVLDataDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RVLDataDownloader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,7 @@
 		4D71E482163B2D29006401C4 = {
 			isa = PBXGroup;
 			children = (
+				4D71E4C6163B2DB2006401C4 /* Sample Application */,
 				4D71E497163B2D29006401C4 /* RVLDataDownloader */,
 				4D71E4B5163B2D2A006401C4 /* RVLDataDownloaderTests */,
 				4D71E490163B2D29006401C4 /* Frameworks */,
@@ -111,12 +116,8 @@
 		4D71E497163B2D29006401C4 /* RVLDataDownloader */ = {
 			isa = PBXGroup;
 			children = (
-				4D71E4A0163B2D29006401C4 /* RVLAppDelegate.h */,
-				4D71E4A1163B2D29006401C4 /* RVLAppDelegate.m */,
-				4D71E4A3163B2D29006401C4 /* RVLViewController.h */,
-				4D71E4A4163B2D29006401C4 /* RVLViewController.m */,
-				4D71E4A6163B2D29006401C4 /* RVLViewController.xib */,
-				4D71E498163B2D29006401C4 /* Supporting Files */,
+				4D71E4DB163B3074006401C4 /* RVLDataDownloader.h */,
+				4D71E4DC163B3074006401C4 /* RVLDataDownloader.m */,
 			);
 			path = RVLDataDownloader;
 			sourceTree = "<group>";
@@ -149,6 +150,20 @@
 				4D71E4B8163B2D2A006401C4 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4D71E4C6163B2DB2006401C4 /* Sample Application */ = {
+			isa = PBXGroup;
+			children = (
+				4D71E4A0163B2D29006401C4 /* RVLAppDelegate.h */,
+				4D71E4A1163B2D29006401C4 /* RVLAppDelegate.m */,
+				4D71E4A3163B2D29006401C4 /* RVLViewController.h */,
+				4D71E4A4163B2D29006401C4 /* RVLViewController.m */,
+				4D71E4A6163B2D29006401C4 /* RVLViewController.xib */,
+				4D71E498163B2D29006401C4 /* Supporting Files */,
+			);
+			name = "Sample Application";
+			path = RVLDataDownloader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +275,7 @@
 				4D71E49E163B2D29006401C4 /* main.m in Sources */,
 				4D71E4A2163B2D29006401C4 /* RVLAppDelegate.m in Sources */,
 				4D71E4A5163B2D29006401C4 /* RVLViewController.m in Sources */,
+				4D71E4DD163B3074006401C4 /* RVLDataDownloader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D71E4BD163B2D2A006401C4 /* RVLDataDownloaderTests.m in Sources */,
+				4D71E4DE163B3074006401C4 /* RVLDataDownloader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
