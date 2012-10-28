@@ -7,10 +7,12 @@
 //
 
 #import "RVLDataDownloaderTests.h"
-#import "RVLDataDownloader.h"
+#import "MockRVLDataDownloader.h"
+#import "MockDataDownloaderDelegate.h"
 
 @implementation RVLDataDownloaderTests {
-    RVLDataDownloader *downloader;
+    MockRVLDataDownloader *downloader;
+    MockDataDownloaderDelegate *delegate;
     UIApplication *application;
     NSError *testError;
 }
@@ -19,7 +21,9 @@
 {
     [super setUp];
     
-    downloader = [[RVLDataDownloader alloc] initWithURL:[NSURL URLWithString:@"http://example.com"]];
+    downloader = [[MockRVLDataDownloader alloc] initWithURL:[NSURL URLWithString:@"http://example.com"]];
+    delegate = [[MockDataDownloaderDelegate alloc] init];
+    downloader.delegate = delegate;
     application = [UIApplication sharedApplication];
     testError = [NSError errorWithDomain:@"Test Domain" code:0 userInfo:nil];
     // Set-up code here.
@@ -99,9 +103,59 @@
 
 #pragma mark - Download Tests
 
-- (void)testDataDownloaderConformsToNSURLConnectionDelegate {
+- (void)testDataDownloaderConformsToNSURLConnectionDataDelegate {
     STAssertTrue([downloader conformsToProtocol:@protocol(NSURLConnectionDataDelegate)], @"Make sure it conforms to the NSURLConnectionDataDelegate protocol");
 }
+
+- (void)testConnectionDidReceiveResponseClearsData {
+    [downloader start];
+    downloader.receivedData = [@"Hello" dataUsingEncoding:NSUTF8StringEncoding];
+    [downloader connection:[[NSURLConnection alloc] init] didReceiveResponse:nil];
+    STAssertEquals([downloader.receivedData length], (NSUInteger)0, @"connection:didReceiveResponse should clear the receivedData");
+}
+
+- (void)testConnectionDidReceiveDataAppendsNewData {
+    [downloader start];
+    downloader.receivedData = [@"Hello" dataUsingEncoding:NSUTF8StringEncoding];
+    [downloader connection:nil didReceiveData:[@" - New Data" dataUsingEncoding:NSUTF8StringEncoding]];
+    STAssertEqualObjects(downloader.receivedData, [@"Hello - New Data" dataUsingEncoding:NSUTF8StringEncoding], @"Make sure the downloaded Data is appended to existing data");
+}
+
+#pragma mark - Delegate Tests
+- (void)testDelegateIsOptional {
+    // ???
+}
+
+- (void)testDelegateMethodsAreOptional {
+   // ??? 
+}
+
+- (void)testDelegateIsNotifiedInEventOfFailure {
+    [downloader start];
+    [downloader connection:[[NSURLConnection alloc] init] didFailWithError:testError];
+    STAssertEqualObjects(testError, delegate.failedError, @"make sure delegate is notified in event of failure");
+}
+
+- (void)testDelegateIsNotifiedInEventOfSuccess {
+    [downloader start];
+    downloader.receivedData = [@"DownloadFinished!" dataUsingEncoding:NSUTF8StringEncoding];
+    [downloader connectionDidFinishLoading:nil];
+    STAssertEqualObjects(delegate.downloadedData, [@"DownloadFinished!" dataUsingEncoding:NSUTF8StringEncoding], @"Test that the delegate is notified on event of success");
+}
+
+- (void)testDelegateIsNotifiedInEventOfCancellation {
+    
+}
+
+- (void)testCancellationErrorIsCorrectDomain {
+    // ???
+}
+
+- (void)testCancellationErrorHasProperUserInfo {
+    // ???
+}
+
+#pragma mark - Notification Tests
 
 
 

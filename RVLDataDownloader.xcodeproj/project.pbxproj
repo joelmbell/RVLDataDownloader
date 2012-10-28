@@ -22,6 +22,8 @@
 		4D71E4BD163B2D2A006401C4 /* RVLDataDownloaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D71E4BC163B2D2A006401C4 /* RVLDataDownloaderTests.m */; };
 		4D71E4DD163B3074006401C4 /* RVLDataDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D71E4DC163B3074006401C4 /* RVLDataDownloader.m */; };
 		4D71E4DE163B3074006401C4 /* RVLDataDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D71E4DC163B3074006401C4 /* RVLDataDownloader.m */; };
+		4DA3BCBD163DC0EF007630FE /* MockRVLDataDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA3BCBC163DC0EF007630FE /* MockRVLDataDownloader.m */; };
+		4DA3BCC0163DC7B2007630FE /* MockDataDownloaderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA3BCBF163DC7B2007630FE /* MockDataDownloaderDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,10 @@
 		4D71E4BC163B2D2A006401C4 /* RVLDataDownloaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RVLDataDownloaderTests.m; sourceTree = "<group>"; };
 		4D71E4DB163B3074006401C4 /* RVLDataDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RVLDataDownloader.h; sourceTree = "<group>"; };
 		4D71E4DC163B3074006401C4 /* RVLDataDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RVLDataDownloader.m; sourceTree = "<group>"; };
+		4DA3BCBB163DC0EF007630FE /* MockRVLDataDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockRVLDataDownloader.h; sourceTree = "<group>"; };
+		4DA3BCBC163DC0EF007630FE /* MockRVLDataDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockRVLDataDownloader.m; sourceTree = "<group>"; };
+		4DA3BCBE163DC7B2007630FE /* MockDataDownloaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockDataDownloaderDelegate.h; sourceTree = "<group>"; };
+		4DA3BCBF163DC7B2007630FE /* MockDataDownloaderDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockDataDownloaderDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +142,7 @@
 		4D71E4B5163B2D2A006401C4 /* RVLDataDownloaderTests */ = {
 			isa = PBXGroup;
 			children = (
+				4DA3BCB9163DC0B3007630FE /* Mocks and Fakes */,
 				4D71E4BB163B2D2A006401C4 /* RVLDataDownloaderTests.h */,
 				4D71E4BC163B2D2A006401C4 /* RVLDataDownloaderTests.m */,
 				4D71E4B6163B2D2A006401C4 /* Supporting Files */,
@@ -164,6 +171,17 @@
 			);
 			name = "Sample Application";
 			path = RVLDataDownloader;
+			sourceTree = "<group>";
+		};
+		4DA3BCB9163DC0B3007630FE /* Mocks and Fakes */ = {
+			isa = PBXGroup;
+			children = (
+				4DA3BCBB163DC0EF007630FE /* MockRVLDataDownloader.h */,
+				4DA3BCBC163DC0EF007630FE /* MockRVLDataDownloader.m */,
+				4DA3BCBE163DC7B2007630FE /* MockDataDownloaderDelegate.h */,
+				4DA3BCBF163DC7B2007630FE /* MockDataDownloaderDelegate.m */,
+			);
+			name = "Mocks and Fakes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +303,8 @@
 			files = (
 				4D71E4BD163B2D2A006401C4 /* RVLDataDownloaderTests.m in Sources */,
 				4D71E4DE163B3074006401C4 /* RVLDataDownloader.m in Sources */,
+				4DA3BCBD163DC0EF007630FE /* MockRVLDataDownloader.m in Sources */,
+				4DA3BCC0163DC7B2007630FE /* MockDataDownloaderDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +466,7 @@
 				4D71E4C2163B2D2A006401C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4D71E4C3163B2D2A006401C4 /* Build configuration list for PBXNativeTarget "RVLDataDownloaderTests" */ = {
 			isa = XCConfigurationList;
@@ -454,6 +475,7 @@
 				4D71E4C5163B2D2A006401C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
