@@ -62,6 +62,12 @@
     STAssertEquals(downloader.status, RVLDataDownloaderStatusFailed, @"make sure failed download sets the status to failed");
 }
 
+- (void)testStatusIsStoppedWhenDownloadCompleted {
+    [downloader start];
+    [downloader connectionDidFinishLoading:[[NSURLConnection alloc] init]];
+    STAssertEquals(downloader.status, RVLDataDownloaderStatusStopped, @"make sure finished downloads have the status of stopped");
+}
+
 #pragma mark - System Network Activity Indicator
 
 - (void)testSystemNetworkActivityIndicatorIsOffByDefault {
@@ -85,10 +91,18 @@
     STAssertEquals(application.networkActivityIndicatorVisible, NO, @"make sure the system network activity indicator is off when download fails");
 }
 
+- (void)testSystemNetworkActivityIndicatorStopsWhenDownloadCompleted {
+    [downloader start];
+    [downloader connectionDidFinishLoading:[[NSURLConnection alloc] init]];
+    STAssertEquals(application.networkActivityIndicatorVisible, NO, @"make sure the system network activity indicator is off after download completes");
+}
+
 #pragma mark - Download Tests
 
 - (void)testDataDownloaderConformsToNSURLConnectionDelegate {
-    STAssertTrue([downloader conformsToProtocol:@protocol(NSURLConnectionDelegate)], @"Make sure it conforms to the NSURLConnectionDelegate protocol");
+    STAssertTrue([downloader conformsToProtocol:@protocol(NSURLConnectionDataDelegate)], @"Make sure it conforms to the NSURLConnectionDataDelegate protocol");
 }
+
+
 
 @end

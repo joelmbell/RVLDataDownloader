@@ -48,6 +48,11 @@
     application.networkActivityIndicatorVisible = NO;
 }
 
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    _status = RVLDataDownloaderStatusStopped;
+    application.networkActivityIndicatorVisible = NO;
+}
+
 
 
 @end

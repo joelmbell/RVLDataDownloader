@@ -15,12 +15,11 @@ typedef enum {
     RVLDataDownloaderStatusCancelled
 } RVLDataDownloaderStatus;
 
-@interface RVLDataDownloader : NSObject <NSURLConnectionDelegate>
+@interface RVLDataDownloader : NSObject <NSURLConnectionDataDelegate>
 
 - (id)initWithURL:(NSURL *)url;
 
 @property (nonatomic, readonly, strong) NSURL *url;
-@property (nonatomic, readonly, strong) NSData *data;
 @property (nonatomic, readonly, assign) RVLDataDownloaderStatus status;
 
 - (void)start;
