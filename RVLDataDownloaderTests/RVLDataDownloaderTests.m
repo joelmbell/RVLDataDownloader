@@ -144,8 +144,6 @@
     STAssertNil(downloader.connection, @"make sure connection is reset after a successful download");
 }
 
-
-
 #pragma mark - Notification Tests
 - (void)testNotificationSentOnFailure {
     // ???
@@ -183,11 +181,12 @@
     STAssertEqualObjects(testError, delegate.failedError, @"make sure delegate is notified in event of failure");
 }
 
-- (void)testDelegateIsNotifiedInEventOfSuccess {
+- (void)testDelegateIsNotifiedAndPassedDataInEventOfSuccess {
     [downloader start];
-    downloader.receivedData = [@"DownloadFinished!" dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *testData = [@"DownloadFinished!" dataUsingEncoding:NSUTF8StringEncoding];
+    downloader.receivedData = testData;
     [downloader connectionDidFinishLoading:nil];
-    STAssertEqualObjects(delegate.downloadedData, [@"DownloadFinished!" dataUsingEncoding:NSUTF8StringEncoding], @"Test that the delegate is notified on event of success");
+    STAssertEqualObjects(delegate.downloadedData, testData, @"Test that the delegate is passed data on event of success");
 }
 
 - (void)testDelegateIsNotifiedInEventOfCancellationWithProperInfo {
