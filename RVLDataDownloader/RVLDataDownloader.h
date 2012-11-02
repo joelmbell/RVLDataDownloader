@@ -16,15 +16,12 @@ typedef enum {
 } RVLDataDownloaderStatus;
 
 
-typedef enum {
-    RVLDataDownloaderErrorCodeCancelled = 1000
-} RVLDataDownloaderErrorCode;
-
 @protocol RVLDataDownloaderDelegate;
 
 @interface RVLDataDownloader : NSObject <NSURLConnectionDataDelegate> {
 @protected
     NSMutableData *receivedData;
+    NSURLConnection *connection;
 }
 
 - (id)initWithURL:(NSURL *)url;
@@ -39,7 +36,7 @@ typedef enum {
 @end
 
 @protocol RVLDataDownloaderDelegate <NSObject>
-
+@optional
 - (void)dataDownloader:(RVLDataDownloader *)downloader didFailWithError:(NSError *)error;
 - (void)dataDownloader:(RVLDataDownloader *)downloader didFinishWithDownloadedData:(NSData *)data;
 

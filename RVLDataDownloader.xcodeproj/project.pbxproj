@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D475D851644392D00F3501D /* MockDataDownloaderDelegateNoMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D475D841644392D00F3501D /* MockDataDownloaderDelegateNoMethods.m */; };
 		4D71E492163B2D29006401C4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D71E491163B2D29006401C4 /* UIKit.framework */; };
 		4D71E494163B2D29006401C4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D71E493163B2D29006401C4 /* Foundation.framework */; };
 		4D71E496163B2D29006401C4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D71E495163B2D29006401C4 /* CoreGraphics.framework */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D475D831644392D00F3501D /* MockDataDownloaderDelegateNoMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockDataDownloaderDelegateNoMethods.h; sourceTree = "<group>"; };
+		4D475D841644392D00F3501D /* MockDataDownloaderDelegateNoMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockDataDownloaderDelegateNoMethods.m; sourceTree = "<group>"; };
 		4D71E48D163B2D29006401C4 /* RVLDataDownloader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RVLDataDownloader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D71E491163B2D29006401C4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4D71E493163B2D29006401C4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -180,6 +183,8 @@
 				4DA3BCBC163DC0EF007630FE /* MockRVLDataDownloader.m */,
 				4DA3BCBE163DC7B2007630FE /* MockDataDownloaderDelegate.h */,
 				4DA3BCBF163DC7B2007630FE /* MockDataDownloaderDelegate.m */,
+				4D475D831644392D00F3501D /* MockDataDownloaderDelegateNoMethods.h */,
+				4D475D841644392D00F3501D /* MockDataDownloaderDelegateNoMethods.m */,
 			);
 			name = "Mocks and Fakes";
 			sourceTree = "<group>";
@@ -305,6 +310,7 @@
 				4D71E4DE163B3074006401C4 /* RVLDataDownloader.m in Sources */,
 				4DA3BCBD163DC0EF007630FE /* MockRVLDataDownloader.m in Sources */,
 				4DA3BCC0163DC7B2007630FE /* MockDataDownloaderDelegate.m in Sources */,
+				4D475D851644392D00F3501D /* MockDataDownloaderDelegateNoMethods.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +403,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RVLDataDownloader/RVLDataDownloader-Prefix.pch";
 				INFOPLIST_FILE = "RVLDataDownloader/RVLDataDownloader-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -408,6 +415,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RVLDataDownloader/RVLDataDownloader-Prefix.pch";
 				INFOPLIST_FILE = "RVLDataDownloader/RVLDataDownloader-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

@@ -9,6 +9,7 @@
 #import "RVLDataDownloaderTests.h"
 #import "MockRVLDataDownloader.h"
 #import "MockDataDownloaderDelegate.h"
+#import "MockDataDownloaderDelegateNoMethods.h"
 
 @implementation RVLDataDownloaderTests {
     MockRVLDataDownloader *downloader;
@@ -121,13 +122,59 @@
     STAssertEqualObjects(downloader.receivedData, [@"Hello - New Data" dataUsingEncoding:NSUTF8StringEncoding], @"Make sure the downloaded Data is appended to existing data");
 }
 
-#pragma mark - Delegate Tests
-- (void)testDelegateIsOptional {
+#pragma mark - Connection Reset Methods
+- (void)testConnectionIsResetAfterFailure {
+    [downloader start];
+    [downloader connection:nil didFailWithError:testError];
+
+    STAssertNil(downloader.connection, @"make sure connection is reset after a failure");
+}
+
+- (void)testConnectionIsResetAfterCancelation {
+    [downloader start];
+    [downloader cancel];
+    
+    STAssertNil(downloader.connection, @"make sure connection is reset after a cancellation");
+}
+
+- (void)testConnectionIsResetAfterSuccess {
+    [downloader start];
+    [downloader connectionDidFinishLoading:nil];
+    
+    STAssertNil(downloader.connection, @"make sure connection is reset after a successful download");
+}
+
+
+
+#pragma mark - Notification Tests
+- (void)testNotificationSentOnFailure {
     // ???
 }
 
+- (void)testNotificationSentOnSuccess {
+    // ???
+}
+
+- (void)testNotificationSentOnCancellation {
+    // ???
+}
+
+#pragma mark - Delegate Tests
+- (void)testDelegateIsOptional {
+    downloader.delegate = nil;
+    [downloader start];
+    
+    STAssertNoThrow([downloader connection:nil didFailWithError:testError], @"test didFailWithError doesn't throw exception when it tries to call delegate method from non-existant delegate");
+    STAssertNoThrow([downloader connectionDidFinishLoading:nil], @"test didFinishLoading doesn't throw exception when it tries to call delegate method from non-existant delegate");
+    STAssertNoThrow([downloader cancel], @"test cancel dosen't throw exception when it tries to call delegate method from non-existant delegate");
+}
+
 - (void)testDelegateMethodsAreOptional {
-   // ??? 
+    MockDataDownloaderDelegateNoMethods *delegateNoMethods = [[MockDataDownloaderDelegateNoMethods alloc] init];
+    downloader.delegate = delegateNoMethods;
+    STAssertNoThrow([downloader connection:nil didFailWithError:testError], @"Test didFailWithError doesn't throw an exception when it tries to call a method from a delegate that doesn't implement that method");
+    STAssertNoThrow([downloader cancel], @"Test cancel dosen't throw exception when it tries to call a delegate method");
+    STAssertNoThrow([downloader connectionDidFinishLoading:nil], @"Test connectionDidFinishLoading doesn't throw and exception when it tries to call a delegate method that isn't implemented");
 }
 
 - (void)testDelegateIsNotifiedInEventOfFailure {
@@ -143,20 +190,14 @@
     STAssertEqualObjects(delegate.downloadedData, [@"DownloadFinished!" dataUsingEncoding:NSUTF8StringEncoding], @"Test that the delegate is notified on event of success");
 }
 
-- (void)testDelegateIsNotifiedInEventOfCancellation {
-    
+- (void)testDelegateIsNotifiedInEventOfCancellationWithProperInfo {
+    [downloader start];
+    [downloader cancel];
+    NSError *canceledError = [NSError errorWithDomain:NSURLErrorDomain code:NSURLErrorCancelled userInfo:nil];
+    STAssertEqualObjects([delegate.failedError domain], canceledError.domain, @"Test that the canceled request returns the correct error domain for a cancelation");
+    STAssertEquals([delegate.failedError code], canceledError.code, @"Test that the canceled request returns the correct error code for cancelation");
+    STAssertEqualObjects(downloader.url, [delegate.failedError.userInfo objectForKey:NSURLErrorFailingURLErrorKey], @"Make sure the failing error is sent to the delegate");
 }
-
-- (void)testCancellationErrorIsCorrectDomain {
-    // ???
-}
-
-- (void)testCancellationErrorHasProperUserInfo {
-    // ???
-}
-
-#pragma mark - Notification Tests
-
 
 
 @end

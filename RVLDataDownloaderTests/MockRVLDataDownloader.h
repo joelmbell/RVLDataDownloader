@@ -11,5 +11,6 @@
 @interface MockRVLDataDownloader : RVLDataDownloader
 
 @property (nonatomic, copy) NSData *receivedData;
+@property (nonatomic, copy) NSURLConnection *connection;
 
 @end

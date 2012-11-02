@@ -18,5 +18,13 @@
     return [receivedData copy];
 }
 
+- (void)setConnection:(NSURLConnection *)conn {
+    connection = [conn copy];
+}
+
+- (NSURLConnection *)connection {
+    return [connection copy];
+}
+
 
 @end
