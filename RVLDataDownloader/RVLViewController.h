@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RVLDataDownloader.h"
 
-@interface RVLViewController : UIViewController
+@interface RVLViewController : UIViewController <RVLDataDownloaderDelegate>
 
 @end

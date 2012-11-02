@@ -22,6 +22,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    NSURL *url = [NSURL URLWithString:@"http://google.com"];
+    RVLDataDownloader *downloader = [[RVLDataDownloader alloc] initWithURL:url];
+    downloader.delegate = self;
+    [downloader start];
 }
 
 - (void)viewDidUnload
@@ -55,6 +59,19 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+#pragma mark - Data Downloader Delegate Methods
+- (void)dataDownloader:(RVLDataDownloader *)downloader didFailWithError:(NSError *)error {
+    NSLog(@"Error: %@", error);
+}
+
+- (void)dataDownloader:(RVLDataDownloader *)downloader didFinishWithDownloadedData:(NSData *)data {
+    NSString *dataString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    
+    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, 320, 460)];
+    [self.view addSubview:textView];
+    textView.text = dataString;
 }
 
 @end

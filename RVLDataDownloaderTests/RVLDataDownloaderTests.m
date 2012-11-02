@@ -144,19 +144,6 @@
     STAssertNil(downloader.connection, @"make sure connection is reset after a successful download");
 }
 
-#pragma mark - Notification Tests
-- (void)testNotificationSentOnFailure {
-    // ???
-}
-
-- (void)testNotificationSentOnSuccess {
-    // ???
-}
-
-- (void)testNotificationSentOnCancellation {
-    // ???
-}
-
 #pragma mark - Delegate Tests
 - (void)testDelegateIsOptional {
     downloader.delegate = nil;
