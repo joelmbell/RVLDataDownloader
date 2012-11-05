@@ -1,6 +1,8 @@
 ##RVLDataDownloader
-_________
+___
 RVLDataDownloader is a very basic class that I created while learning about Test Driven Development for iOS. Feel free to let me know what you think and what you would do differently. I am always looking for feedback on my code!
+
+__Its function is simple__: Assign a URL to it and it will download any data it receives at that URL. the RVLDataDownloaderDelegate methods will provide you with an NSData object of the downloaded data on success or an NSError object on failure.
 
 ###Usage
 ___
@@ -12,12 +14,11 @@ If you would like delegate call backs then you can set the delegate of the deleg
 	
 	downloader.delegate = self;
 
-	
 Then Start it
 
 	[downloader start];
 	
-If you set the delegate you'll receive callbacks for when the application fails or succeeds.
+If you set the delegate you'll receive callbacks for when the download fails or succeeds.
 	
 
 ###License (Standard BSD)

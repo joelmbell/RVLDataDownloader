@@ -56,6 +56,9 @@
     _status = RVLDataDownloaderStatusCancelled;
     application.networkActivityIndicatorVisible = NO;
     
+    // Need this line of code to cancel the actual URLConnection, but I don't know how to test that it is there.
+    [connection cancel];
+
     NSDictionary *userInfo = nil;
     if (self.url != nil) {
         userInfo = [NSDictionary dictionaryWithObject:self.url forKey:NSURLErrorFailingURLErrorKey];
